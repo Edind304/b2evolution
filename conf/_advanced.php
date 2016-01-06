@@ -87,7 +87,7 @@ $log_app_errors = 1;
  * Allows to force a timezone if PHP>=5.1
  * See: http://b2evolution.net/man/date_default_timezone-forcing-a-timezone
  */
-$date_default_timezone = '';
+$date_default_timezone = 'Europe/Moscow';
 
 /**
  * Thumbnail size definitions.

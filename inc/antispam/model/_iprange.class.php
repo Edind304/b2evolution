@@ -29,6 +29,8 @@ class IPRange extends DataObject
 
 	var $IPv4end;
 
+	var $IP_timestamp;
+	
 	var $user_count;
 
 	var $status;
@@ -50,9 +52,17 @@ class IPRange extends DataObject
 			$this->ID = $db_row->aipr_ID;
 			$this->IPv4start = $db_row->aipr_IPv4start;
 			$this->IPv4end = $db_row->aipr_IPv4end;
+			$this->IP_timestamp = strtotime( $db_row->aipr_IP_timestamp );
 			$this->user_count = $db_row->aipr_user_count;
 			$this->status = $db_row->aipr_status;
 			$this->block_count = $db_row->aipr_block_count;
+			
+		}
+		
+		else
+		{	// New object:
+			global $localtimenow;
+			$this->IP_timestamp = $localtimenow;
 		}
 	}
 
@@ -104,6 +114,10 @@ class IPRange extends DataObject
 		param_check_regexp( 'aipr_IPv4end', '#^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$#i', T_('Please enter a correct IP range end') );
 		$aipr_IPv4end = ip2int( $aipr_IPv4end );
 		$this->set( 'IPv4end', $aipr_IPv4end );
+
+		// start timestamp:
+		param_date( 'aipr_IP_timestamp', T_('Please enter a valid Date.'), true );
+		$this->set( 'IP_datetime', form_date( get_param( 'aipr_IP_timestamp' ) ) );
 
 		if( $aipr_IPv4start > $aipr_IPv4end )
 		{

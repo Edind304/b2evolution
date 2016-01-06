@@ -82,8 +82,27 @@ module.exports = function(grunt) {
 			},
 
 			// fp> I removed the 'compress' task because when we want to compress, we should use 'cssmin' which is more efficient and also used '*.bmin.css' filenames
+			//Configuration for less>backofficetest.less
+			myless: {
+				options: {
+					compress: false,
+				},
+				files: {
+					// Bootstrap back-office styles:
+					'rsc/build/bootstrap-backoffice-b2evo_base.bundle.css': [
+							// Basic styles for all bootstrap skins
+							'rsc/less/bootstrap-basic_styles.less',
+							'rsc/less/bootstrap-basic.less',
+							'rsc/less/bootstrap-item_base.less',		// fp> I added this because blockquote was not properly styles in the backoffice
+							'rsc/less/bootstrap-evoskins.less',			// Common styles for all bootstrap skins
+							'rsc/less/backofficetest.less'				// my test less for backoffice;
+						]
+				}			
+			},
+		
 		},
-
+		
+		
 		// Configuration for the scss->css compiling tasks:
 		sass: {
 			development: {
@@ -322,7 +341,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-markdown');
-
+	
+	// my task for less
+	grunt.registerTask('mytest',['less:myless','cssmin:bootstrap_backoffice_b2evo_base']);
 	// Default task(s):
 	grunt.registerTask('default', ['less','sass','concat','cssmin','uglify','markdown']);
 

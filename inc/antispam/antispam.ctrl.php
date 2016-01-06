@@ -456,6 +456,7 @@ switch( $action )
 		break;
 }
 
+
 if( $display_mode != 'js' )
 {
 	if( $tab == 'stats' )
@@ -517,7 +518,7 @@ if( $display_mode != 'js' )
 		case 'ipranges':
 			if( empty( $action ) )
 			{	// View a list of IP ranges
-				require_js( 'jquery/jquery.jeditable.js', 'rsc_url' );
+				require_js( 'jquery/jquery.jeditable.js' );
 			}
 			elseif( ! $current_User->check_perm( 'spamblacklist', 'edit' ) )
 			{	// Check permission to create/edit IP range
@@ -530,6 +531,7 @@ if( $display_mode != 'js' )
 			if( $action == 'iprange_new' || $action == 'iprange_edit' )
 			{
 				$AdminUI->set_page_manual_link( 'ip-range-editing' );
+				
 			}
 			else
 			{
@@ -555,7 +557,8 @@ if( $display_mode != 'js' )
 				require_js( 'jquery/jquery.jeditable.js' );
 			}
 			// Load jquery UI to highlight cell on change domain type
-			require_js( '#jqueryUI#' );
+			//require_js( '#jqueryUI#' );
+			
 			// Used for edit form
 			$tab_from = 'antispam';
 			$blog = 0; // Don't restrict domains by blog ID on this controller
@@ -568,6 +571,11 @@ if( $display_mode != 'js' )
 	if( !empty( $tab3 ) )
 	{
 		$AdminUI->append_path_level( $tab3 );
+	}
+
+	if( in_array( $action, array( 'iprange_new', 'iprange_edit' ) ) )
+	{ // Initialize date picker for cronjob.form.php
+		init_datepicker_js();
 	}
 
 	// Display <html><head>...</head> section! (Note: should be done early if actions do not redirect)

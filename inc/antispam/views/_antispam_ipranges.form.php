@@ -25,6 +25,7 @@ $creating = $action == 'iprange_new';
 
 $Form = new Form( NULL, 'iprange_checkchanges', 'post', 'compact' );
 
+
 $Form->global_icon( T_('Cancel editing!'), 'close', regenerate_url( 'action,iprange_ID' ) );
 
 $Form->begin_form( 'fform', ( $creating ?  T_('New IP Range') : T_('IP Range') ).get_manual_link( 'ip-range-editing' ) );
@@ -41,6 +42,8 @@ $Form->begin_form( 'fform', ( $creating ?  T_('New IP Range') : T_('IP Range') )
 	$Form->text_input( 'aipr_IPv4start', int2ip( $edited_IPRange->get( 'IPv4start' ) ), 50, T_('IP Range Start'), '', array( 'maxlength' => 15, 'required' => true ) );
 
 	$Form->text_input( 'aipr_IPv4end', int2ip( $edited_IPRange->get( 'IPv4end' ) ), 50, T_('IP Range End'), '', array( 'maxlength' => 15, 'required' => true ) );
+
+	$Form->date_input( 'aipr_IP_timestamp', date2mysql( $edited_IPRange->IP_timestamp ), T_('Date'), array( 'required' => true ) );
 
 	$Form->info( T_('User count'), (int)$edited_IPRange->get( 'user_count' ) );
 

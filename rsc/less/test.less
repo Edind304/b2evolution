@@ -21,3 +21,24 @@
 
   div { .box-shadow(0 0 5px, 30%) }
 }
+
+// Limit width of the table cells to text length without new line breaks
+.shrinkwrap {
+	width: 1%;
+	white-space: nowrap;
+	text-align: center;
+	border: 1px solid yellow;
+}
+.shrinkwrap.left {
+	text-align: left;
+}
+
+.block {
+	margin: 1ex;
+	white-space: nowrap;
+}
+
+a.selected {
+	font-weight: bold;
+	color: red;
+}

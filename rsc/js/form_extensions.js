@@ -12,7 +12,7 @@
  * @return form the parent form of the child object
  */
 function get_form( object )
-{
+{ 
  	while( object.tagName != 'FORM' )
 	{	// loop which goes from the checkbox to the form
 		// alert( object.nodeName );

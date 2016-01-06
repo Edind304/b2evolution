@@ -1,0 +1,20 @@
+// This is an example only (not used in B2evolution at this time)
+// See http://lesscss.org to learn the basics of the LESS language
+
+// define color vars:
+@base: #f938ab;
+@nice-blue: #CA2C5E;
+@light-blue: @nice-blue + #111;
+
+// Limit width of the table cells to text length without new line breaks
+.shrinkwrap {
+	width: 1%;
+	white-space: nowrap;
+	text-align: center;
+	border: 1px solid @light-blue;
+}
+
+a {
+	font-weight: bold;
+	color: @nice-blue;
+}

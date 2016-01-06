@@ -96,6 +96,13 @@ $Results->cols[] = array(
 	);
 
 $Results->cols[] = array(
+		'th' => T_('Date'),
+		'td' => '$aipr_IP_timestamp$',
+		'order' => 'aipr_IP_timestamp',
+		'td_class' => 'shrinkwrap',
+	);
+
+$Results->cols[] = array(
 		'th' => T_('User count'),
 		'td' => '$aipr_user_count$',
 		'order' => 'aipr_user_count',

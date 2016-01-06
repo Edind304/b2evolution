@@ -2324,3 +2324,14 @@ div.message_toolbars {
 .evo_private_messages_list .panel.results {
   margin-bottom: 20px;
 }
+
+.shrinkwrap {
+  width: 1%;
+  white-space: nowrap;
+  text-align: center;
+  border: 1px solid #db3d6f;
+}
+a {
+  font-weight: bold;
+  color: #ca2c5e;
+}

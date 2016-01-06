@@ -19,7 +19,7 @@ global $localtimenow, $edited_Cronjob;
 global $action;
 $creating = is_create_action( $action );
 
-$Form = new Form( NULL, 'cronjob' );
+$Form = new Form( NULL, 'cronjob2' );
 
 $Form->global_icon( T_('Cancel!'), 'close', regenerate_url( 'action' ) );
 
@@ -51,11 +51,8 @@ $Form->begin_form( 'fform', $creating ? T_('New scheduled job') : T_('Edit sched
 			$Form->text_input( 'cjob_name', $edited_Cronjob->name, 50, T_('Job name'), '', array( 'maxlength' => 255 ) );
 		}
 
-		$Form->date_input( 'cjob_date', date2mysql( $edited_Cronjob->start_timestamp ), T_('Schedule date'), array(
-							 'required' => true ) );
-
-		$Form->time_input( 'cjob_time', date2mysql( $edited_Cronjob->start_timestamp ), T_('Schedule time'), array(
-							 'required' => true ) );
+		$Form->date_input( 'cjob_date', date2mysql( $edited_Cronjob->start_timestamp ), T_('Schedule date'), array( 'required' => true ) );
+		$Form->time_input( 'cjob_time', date2mysql( $edited_Cronjob->start_timestamp ), T_('Schedule time'), array( 'required' => true ) );
 
 		$Form->duration_input( 'cjob_repeat_after', $edited_Cronjob->repeat_after, T_('Repeat every'), 'days', 'minutes', array( 'minutes_step' => 1 ) );
 

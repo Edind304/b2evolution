@@ -681,7 +681,7 @@ if( $tab3 == 'fullview' )
 
 if( in_array( $action, array( 'edit', 'update_publish', 'update', 'update_edit', 'elevate' ) ) )
 { // Initialize date picker for _comment.form.php
-	init_datepicker_js();
+	init_datepicker_js( );
 }
 
 require_css( $AdminUI->get_template( 'blog_base.css' ) ); // Default styles for the blog navigation
