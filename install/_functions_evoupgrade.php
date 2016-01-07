@@ -3644,6 +3644,7 @@ function upgrade_b2evo_tables( $upgrade_action = 'evoupgrade' )
 			aipr_ID         int(10) unsigned NOT NULL auto_increment,
 			aipr_IPv4start  int(10) unsigned NOT NULL,
 			aipr_IPv4end    int(10) unsigned NOT NULL,
+			aipr_IP_timestamp        datetime not null DEFAULT '2000-01-01 00:00:00',
 			aipr_user_count int(10) unsigned DEFAULT 0,
 			PRIMARY KEY aipr_ID (aipr_ID)
 		) ENGINE = innodb" );

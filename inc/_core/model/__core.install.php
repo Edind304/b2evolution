@@ -254,6 +254,7 @@ $schema_queries = array(
 			aipr_ID                  int(10) unsigned NOT NULL auto_increment,
 			aipr_IPv4start           int(10) unsigned NOT NULL,
 			aipr_IPv4end             int(10) unsigned NOT NULL,
+			aipr_IP_timestamp        datetime not null DEFAULT '2000-01-01 00:00:00',
 			aipr_user_count          int(10) unsigned DEFAULT 0,
 			aipr_contact_email_count int(10) unsigned DEFAULT 0,
 			aipr_status              enum( 'trusted', 'suspect', 'blocked' ) COLLATE ascii_general_ci NULL DEFAULT NULL,
